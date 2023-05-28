@@ -4,8 +4,9 @@ namespace toDoList{
     class user{
 
     }
-    class task{
-
+    class task
+    {
+        protected bool is_done;
     }
     class userTask{
 
