@@ -9,7 +9,7 @@ namespace toDoList{
         protected bool is_done;
     }
     class userTask{
-
+        protected string task;
     }
     class program{
         static function Main(string[] args){
