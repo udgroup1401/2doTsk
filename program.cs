@@ -2,7 +2,7 @@ using System;
 
 namespace toDoList{
     class user{
-
+        protected string username;
     }
     class task
     {
