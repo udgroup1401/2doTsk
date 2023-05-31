@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace toDoList{
-    class user{
+namespace toDoList
+{
+    class user
+    {
         protected string username;
         protected string password;
         protected bool loggedIn;
@@ -52,8 +54,16 @@ namespace toDoList{
     {
         protected bool is_done;
     }
-    class userTask{
-        protected string task;
+    class userTask
+    {
+        protected string order;
+
+        public userTask(string order)
+        {
+
+
+
+        }
     }
     class program{
         static void Main(string[] args){
