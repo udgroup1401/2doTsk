@@ -32,7 +32,7 @@ namespace toDoList{
                 File.WriteAllText("db.json", updatedJsonContent);
                 this.loggedIn = true;
             }
-        }
+        } 
         public void login(){
             List<string[]> allUsersAndPassword = new List<string[]>();
             string jsonContent = File.ReadAllText("db.json");
