@@ -111,7 +111,7 @@ namespace toDoList
     }
     class userTask
     {
-        
+
 
         protected string order;
         protected int tasks;
@@ -192,11 +192,13 @@ namespace toDoList
                         userTask ut = new userTask(loggedInUser.getUsername());
                         Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {ut.howManyTask()} task\n1. logout 2. show task");
                         int userInputMenuL = Convert.ToInt32(Console.ReadLine());
-                        
+
                         if (userInputMenuL == 1) { loggedInUser.logout(); }
-                        if (userInputMenuL == 2){
+                        if (userInputMenuL == 2)
+                        {
                             task[] userTaskForShow = ut.detailedTask();
-                            foreach(task tskFSF in forTest){
+                            foreach (task tskFSF in userTaskForShow)
+                            {
                                 tskFSF.tostring();
                             }
                         }
