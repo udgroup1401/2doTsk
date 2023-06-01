@@ -187,11 +187,17 @@ namespace toDoList
                     }
                     else
                     {
-                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()}\n1. logout");
-                        int userInputMenuL = Convert.ToInt32(Console.ReadLine());
                         userTask ut = new userTask(loggedInUser.getUsername());
-                        Console.WriteLine(ut.howManyTask());
+                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {ut.howManyTask()} task\n1. logout 2. show task");
+                        int userInputMenuL = Convert.ToInt32(Console.ReadLine());
+                        
                         if (userInputMenuL == 1) { loggedInUser.logout(); }
+                        if (userInputMenuL == 2){
+                            task[] userTaskForShow = ut.detailedTask();
+                            foreach(task tskFSF in forTest){
+                                tskFSF.tostring();
+                            }
+                        }
                     }
                 }
             }
