@@ -194,7 +194,7 @@ namespace toDoList
                         if (userInputMenuL == 1) { loggedInUser.logout(); }
                         if (userInputMenuL == 2){
                             task[] userTaskForShow = ut.detailedTask();
-                            foreach(task tskFSF in forTest){
+                            foreach(task tskFSF in userTaskForShow){
                                 tskFSF.tostring();
                             }
                         }
