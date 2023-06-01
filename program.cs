@@ -137,7 +137,7 @@ namespace toDoList
                     foreach (var taskObjectT in user["task"])
                     {
                         taskDetail[indexT] = new task("aaaa", Convert.ToInt32(taskObjectT["taskId"].ToString()), taskObjectT["taskDes"].ToString(), Convert.ToBoolean(taskObjectT["isDone"].ToString()), Convert.ToInt32(taskObjectT["timeDateStart"].ToString()), Convert.ToInt32(taskObjectT["timeDateDone"].ToString()), taskObjectT["tag"].ToString());
-
+                        indexT++;
                     }
 
                 }
