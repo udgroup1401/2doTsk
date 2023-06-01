@@ -192,6 +192,7 @@ namespace toDoList
                         userTask ut = new userTask(loggedInUser.getUsername());
                         Console.WriteLine(ut.howManyTask());
                         if (userInputMenuL == 1) { loggedInUser.logout(); }
+                        
                     }
                 }
             }
