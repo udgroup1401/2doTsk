@@ -113,14 +113,6 @@ namespace toDoList
                 }
             }
         }
-        public task[] addTask()
-        {
-
-        }
-        public task[] deleteTask()
-        {
-
-        }
         public int howManyTask()
         {
             return this.tasks;
