@@ -78,6 +78,7 @@ namespace toDoList
             this.is_done = is_done;
             this.dtstart = dtstart;
             this.dtend = dtend;
+
             this.tag = tag;
         }
         DateTimeOffset now = (DateTimeOffset)DateTime.UtcNow;
