@@ -156,13 +156,21 @@ namespace toDoList
     {
         static void Main(string[] args)
         {
-            //Console.Clear();
+            Console.Clear();
             while (true)
             {
                 Console.Write("USER? ");
                 string fuser = Console.ReadLine();
+                while(fuser == ""){
+                    Console.Write("USER? ");
+                    fuser = Console.ReadLine();
+                }
                 Console.Write("PASS? ");
                 string fpass = Console.ReadLine();
+                while(fpass == ""){
+                    Console.Write("PASS? ");
+                    fpass = Console.ReadLine();
+                }
                 user loggedInUser = new user(fuser, fpass);
                 while (true)
                 {
