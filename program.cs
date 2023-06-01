@@ -111,6 +111,8 @@ namespace toDoList
     }
     class userTask
     {
+
+
         protected string order;
         protected int tasks;
         protected task[] taskDetail;
@@ -135,7 +137,7 @@ namespace toDoList
                     foreach (var taskObjectT in user["task"])
                     {
                         taskDetail[indexT] = new task("aaaa", Convert.ToInt32(taskObjectT["taskId"].ToString()), taskObjectT["taskDes"].ToString(), Convert.ToBoolean(taskObjectT["isDone"].ToString()), Convert.ToInt32(taskObjectT["timeDateStart"].ToString()), Convert.ToInt32(taskObjectT["timeDateDone"].ToString()), taskObjectT["tag"].ToString());
-
+                        indexT++;
                     }
 
                 }
@@ -154,13 +156,21 @@ namespace toDoList
     {
         static void Main(string[] args)
         {
-            //Console.Clear();
+            Console.Clear();
             while (true)
             {
                 Console.Write("USER? ");
                 string fuser = Console.ReadLine();
+                while(fuser == ""){
+                    Console.Write("USER? ");
+                    fuser = Console.ReadLine();
+                }
                 Console.Write("PASS? ");
                 string fpass = Console.ReadLine();
+                while(fpass == ""){
+                    Console.Write("PASS? ");
+                    fpass = Console.ReadLine();
+                }
                 user loggedInUser = new user(fuser, fpass);
                 while (true)
                 {
@@ -187,13 +197,19 @@ namespace toDoList
                     }
                     else
                     {
-                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()}\n1. logout");
-                        int userInputMenuL = Convert.ToInt32(Console.ReadLine());
                         userTask ut = new userTask(loggedInUser.getUsername());
-                        Console.WriteLine(ut.howManyTask());
+                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {ut.howManyTask()} task\n1. logout 2. show task");
+                        int userInputMenuL = Convert.ToInt32(Console.ReadLine());
+
                         if (userInputMenuL == 1) { loggedInUser.logout(); }
-                        
-                        
+                        if (userInputMenuL == 2)
+                        {
+                            task[] userTaskForShow = ut.detailedTask();
+                            foreach (task tskFSF in userTaskForShow)
+                            {
+                                tskFSF.tostring();
+                            }
+                        }
                     }
                 }
             }
