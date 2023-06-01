@@ -198,7 +198,7 @@ namespace toDoList
                     else
                     {
                         userTask ut = new userTask(loggedInUser.getUsername());
-                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {ut.howManyTask()} task\n1. logout 2. show task");
+                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {ut.howManyTask()} task\n1. logout\n2. show task");
                         int userInputMenuL = Convert.ToInt32(Console.ReadLine());
 
                         if (userInputMenuL == 1) { loggedInUser.logout(); }
