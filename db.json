@@ -7,7 +7,7 @@
                 {
                     "taskId":0,
                     "taskDes":"",
-                    "isDone":"",
+                    "isDone":false,
                     "timeDateStart": 123456789,
                     "timeDateDone":123456789,
                     "tag":""
@@ -16,7 +16,7 @@
                 {
                     "taskId":1,
                     "taskDes":"",
-                    "isDone":"",
+                    "isDone":false,
                     "timeDateStart":123456789,
                     "timeDateDone":123456789,
                     "tag":""
