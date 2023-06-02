@@ -155,6 +155,7 @@ namespace toDoList
             string jsonContent = File.ReadAllText("db.json");
             JObject dbFile = JObject.Parse(jsonContent);
             JArray JNewTasks = new JArray();
+            int whereIsUser = 0;
             foreach (var user in dbFile["users"])
             {
                 if (userName == user["username"].ToString())
@@ -163,7 +164,7 @@ namespace toDoList
                     {
                         var newResultToAdd = new JObject(
                      new JProperty("taskId", 123),
-                     new JProperty("taskDes", "dvcvfg"),
+                     new JProperty("taskDes", "ghgfh"),
                      new JProperty("isDone", false),
                      new JProperty("timeDateStart", 123),
                      new JProperty("timeDateDone", 123),
@@ -171,13 +172,14 @@ namespace toDoList
                      );
                         JNewTasks.Add(newResultToAdd);
                     }
+                    break;
+                }else{
+                    whereIsUser++;
                 }
             }
-            JArray usersArray = (JArray)dbFile["users"];
-                usersArray.Add(newResultToAdd);
+            dbFile["users"][whereIsUser]["task"] = JNewTasks;
+            File.WriteAllText("db.json", JsonConvert.SerializeObject(dbFile, Formatting.Indented));
 
-                string updatedJsonContent = dbFile.ToString();
-                File.WriteAllText("db.json", updatedJsonContent);
         }
         public task[] addTask(task addy, string userName)
         {
