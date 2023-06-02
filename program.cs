@@ -117,11 +117,11 @@ namespace toDoList
         }
         public string gettask_discription()
         {
-            return this.taskid;
+            return this.task_description;
         }
         public bool getis_done()
         {
-            return this.isdone;
+            return this.is_done;
         }
         public int getdtstart()
         {
