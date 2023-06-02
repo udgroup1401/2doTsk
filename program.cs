@@ -236,13 +236,13 @@ namespace toDoList
                     }
                     else
                     {
-                        userTask ut = new userTask(loggedInUser.getUsername());
-                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {ut.howManyTask()} task\n1. logout\n2. show task\n3. new task");
+                        userTask loggedInUserTask = new userTask(loggedInUser.getUsername());
+                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {loggedInUserTask.howManyTask()} task\n1. logout\n2. show task\n3. new task");
                         int userInputMenuL = Convert.ToInt32(Console.ReadLine());
                         if (userInputMenuL == 1) { loggedInUser.logout(); }
                         if (userInputMenuL == 2)
                         {
-                            task[] userTaskForShow = ut.detailedTask();
+                            task[] userTaskForShow = loggedInUserTask.detailedTask();
                             foreach (task tskFSF in userTaskForShow)
                             {
                                 tskFSF.tostring();
@@ -250,6 +250,10 @@ namespace toDoList
                             }
                         }
                         if(userInputMenuL == 3){
+                            Console.WriteLine("enter task name");
+                            string newTaskName = Console.ReadLine();
+                            task newTaskForAdd = new task(newTaskName,123,"des t",false,123,123,"n");
+                            loggedInUserTask.addTask(newTaskForAdd,loggedInUser.getUsername());                   
                         }
                     }
                 }
