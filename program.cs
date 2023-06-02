@@ -67,10 +67,10 @@ namespace toDoList
         protected int taskid;
         protected string task_description;
         protected bool is_done;
-        protected int dtstart;
-        protected int dtend;
+        protected long dtstart;
+        protected long dtend;
         protected string tag;
-        public task(string name, int taskid, string task_description, bool is_done, int dtstart, int dtend, string tag)
+        public task(string name, int taskid, string task_description, bool is_done, long dtstart, long dtend, string tag)
         {
             this.name = name;
             this.taskid = taskid;
@@ -85,6 +85,19 @@ namespace toDoList
             var Timestamp = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
             Timestamp = Convert.ToInt64(Timestamp);
             return Timestamp;
+        }
+        public static string getDataTimeFromTimestamp(long tms){
+            DateTime dateTime = DateTimeOffset.FromUnixTimeSeconds(tms).DateTime;
+            return dateTime.ToString("yyyy/MM/dd HH:mm");
+        }
+        public static long getTimestampFromDataAndTime(string dateTimeString){
+            //Enter date and time in yyyy/MM/dd HH:mm
+            DateTime dateTime;
+            if (!DateTime.TryParseExact(dateTimeString, "yyyy/MM/dd HH:mm", null, System.Globalization.DateTimeStyles.None, out dateTime)){
+                return 0;
+            }
+            long timestamp = (long)(dateTime.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds;
+            return timestamp;
         }
         public static int taskidNumber()
         {
@@ -128,11 +141,11 @@ namespace toDoList
         {
             return this.is_done;
         }
-        public int getdtstart()
+        public long getdtstart()
         {
             return this.dtstart;
         }
-        public int getdtend()
+        public long getdtend()
         {
             return this.dtend;
         }
@@ -320,7 +333,11 @@ namespace toDoList
                             string newTaskDes = Console.ReadLine();
                             Console.WriteLine("enter task tag");
                             string newTaskTag = Console.ReadLine();
-                            task newTaskForAdd = new task(newTaskName,Convert.ToInt32(task.taskidNumber()),newTaskDes,false,123,123,newTaskTag);
+                            Console.WriteLine("enter start time : yyyy/MM/dd HH:mm");
+                            long startTimeStamp = task.getTimestampFromDataAndTime(Console.ReadLine());
+                            Console.WriteLine("enter end time : yyyy/MM/dd HH:mm");
+                            long endTimeStamp = task.getTimestampFromDataAndTime(Console.ReadLine());
+                            task newTaskForAdd = new task(newTaskName,Convert.ToInt32(task.taskidNumber()),newTaskDes,false,startTimeStamp,endTimeStamp,newTaskTag);
                             loggedInUserTask.addTask(newTaskForAdd,loggedInUser.getUsername());                   
                         }
                         
