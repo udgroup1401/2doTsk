@@ -147,12 +147,15 @@ namespace toDoList
                     {
                         if(Convert.ToInt32(taskObjectT["taskId"].ToString())==taskid)
                         {
-                            this.name=
+                            this.name=taskObjectT["name"].ToString();
+                            this.taskid = Convert.ToInt32(taskObjectT["taskId"].ToString());
+                            this.task_description =  taskObjectT["taskDes"].ToString();
+                            this.is_done = Convert.ToBoolean(taskObjectT["isDone"].ToString());
+                            this.dtstart = Convert.ToInt32(taskObjectT["timeDateStart"].ToString());
+                            this.dtend =  Convert.ToInt32(taskObjectT["timeDateDone"].ToString());
+                            this.tag = taskObjectT["tag"].ToString();
                         }
-                        taskDetail[indexT] = new task("aaaa", Convert.ToInt32(taskObjectT["taskId"].ToString()), taskObjectT["taskDes"].ToString(), Convert.ToBoolean(taskObjectT["isDone"].ToString()), Convert.ToInt32(taskObjectT["timeDateStart"].ToString()), Convert.ToInt32(taskObjectT["timeDateDone"].ToString()), taskObjectT["tag"].ToString());
-                        indexT++;
                     }
-
                 }
             }
         }
