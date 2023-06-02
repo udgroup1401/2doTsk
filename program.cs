@@ -112,7 +112,7 @@ namespace toDoList
     class userTask
     {
 
-
+        protected int[] save;
         protected string order;
         protected int tasks;
         protected task[] taskDetail;
@@ -150,6 +150,14 @@ namespace toDoList
         public task[] detailedTask()
         {
             return taskDetail;
+        }
+        public int save()
+        {
+
+        }
+        public task[] addTask()
+        {
+            
         }
     }
     class program
