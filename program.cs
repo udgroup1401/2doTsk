@@ -311,10 +311,13 @@ namespace toDoList
                         if(userInputMenuL == 3){
                             Console.WriteLine("enter task name");
                             string newTaskName = Console.ReadLine();
-                            task newTaskForAdd = new task(newTaskName,123,"des t",false,123,123,"n");
+                            Console.WriteLine("enter task des");
+                            string newTaskDes = Console.ReadLine();
+                            Console.WriteLine("enter task tag");
+                            string newTaskTag = Console.ReadLine();
+                            task newTaskForAdd = new task(newTaskName,123,newTaskDes,false,123,123,newTaskTag);
                             loggedInUserTask.addTask(newTaskForAdd,loggedInUser.getUsername());                   
                         }
-
                         
                     }
                 }
