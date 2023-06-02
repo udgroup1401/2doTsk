@@ -78,7 +78,6 @@ namespace toDoList
             this.is_done = is_done;
             this.dtstart = dtstart;
             this.dtend = dtend;
-
             this.tag = tag;
         }
         DateTimeOffset now = (DateTimeOffset)DateTime.UtcNow;
@@ -96,11 +95,11 @@ namespace toDoList
             }
             return num;
         }
-        public void replacetd(string task_discription)
+        public void replacetask_discription(string task_discription)
         {
             this.task_description = task_discription;
         }
-        public void changedone(bool is_done)
+        public void changeis_done(bool is_done)
         {
             this.is_done = is_done;
         }
@@ -108,6 +107,27 @@ namespace toDoList
         {
             Console.WriteLine($"name:{this.name}\n taskid:{this.taskid}\n task_description:{this.task_description}\n is_done:{this.is_done}\n dtstart:{this.dtstart}\n dtend:{this.dtend}\n tag:{this.tag}");
         }
+        public void gettaskid(int taskid)
+        {
+            if(taski=taskid)
+            {
+            return
+            this.name = name;
+            this.taskid = taskid;
+            this.task_description = task_description;
+            this.is_done = is_done;
+            this.dtstart = dtstart;
+            this.dtend = dtend;
+            this.tag = tag;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        //public task(int taskid,int username)
+        //{
+        //}
     }
     class userTask
     {
