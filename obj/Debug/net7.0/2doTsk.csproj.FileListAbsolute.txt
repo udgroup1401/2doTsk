@@ -1,0 +1,17 @@
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\obj\Debug\net7.0\2doTsk.csproj.AssemblyReference.cache
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\obj\Debug\net7.0\2doTsk.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\obj\Debug\net7.0\2doTsk.AssemblyInfoInputs.cache
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\obj\Debug\net7.0\2doTsk.AssemblyInfo.cs
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\obj\Debug\net7.0\2doTsk.csproj.CoreCompileInputs.cache
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\bin\Debug\net7.0\2doTsk.exe
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\bin\Debug\net7.0\2doTsk.deps.json
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\bin\Debug\net7.0\2doTsk.runtimeconfig.json
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\bin\Debug\net7.0\2doTsk.dll
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\bin\Debug\net7.0\2doTsk.pdb
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\obj\Debug\net7.0\2doTsk.csproj.CopyComplete
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\obj\Debug\net7.0\2doTsk.dll
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\obj\Debug\net7.0\refint\2doTsk.dll
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\obj\Debug\net7.0\2doTsk.pdb
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\obj\Debug\net7.0\2doTsk.genruntimeconfig.cache
+C:\Users\Sahand-Pc\Desktop\GIT\c#proj\التذذتدد\2doTsk\obj\Debug\net7.0\ref\2doTsk.dll

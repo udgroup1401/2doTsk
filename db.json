@@ -1,29 +1,26 @@
 {
-    "users":[
+  "users": [
+    {
+      "username": "djhgdhjdgj",
+      "password": "djhgdhjdgj",
+      "task": [
         {
-            "username":"djhgdhjdgj",
-            "password":"djhgdhjdgj",
-            "task":[
-                {
-                    "taskId":0,
-                    "taskDes":"",
-                    "isDone":false,
-                    "timeDateStart": 123456789,
-                    "timeDateDone":123456789,
-                    "tag":""
-
-                },
-                {
-                    "taskId":1,
-                    "taskDes":"",
-                    "isDone":false,
-                    "timeDateStart":123456789,
-                    "timeDateDone":123456789,
-                    "tag":""
-
-                }
-
-            ]
+          "taskId": 0,
+          "taskDes": "",
+          "isDone": false,
+          "timeDateStart": 123456789,
+          "timeDateDone": 123456789,
+          "tag": ""
+        },
+        {
+          "taskId": 1,
+          "taskDes": "",
+          "isDone": false,
+          "timeDateStart": 123456789,
+          "timeDateDone": 123456789,
+          "tag": ""
         }
-    ]   
+      ]
+    }
+  ]
 }
