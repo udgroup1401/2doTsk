@@ -173,6 +173,11 @@ namespace toDoList
                     }
                 }
             }
+            JArray usersArray = (JArray)dbFile["users"];
+                usersArray.Add(newResultToAdd);
+
+                string updatedJsonContent = dbFile.ToString();
+                File.WriteAllText("db.json", updatedJsonContent);
         }
         public task[] addTask(task addy, string userName)
         {
