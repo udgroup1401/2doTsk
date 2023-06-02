@@ -135,6 +135,27 @@ namespace toDoList
         {
             return this.tag;
         }
+        public task(int taskid,string userName)
+        {
+            string jsonContent = File.ReadAllText("db.json");
+            JObject dbFile = JObject.Parse(jsonContent);
+            foreach (var user in dbFile["users"])
+            {
+                if (userName == user["username"].ToString())
+                {
+                    foreach (var taskObjectT in user["task"])
+                    {
+                        if(Convert.ToInt32(taskObjectT["taskId"].ToString())==taskid)
+                        {
+                            this.name=
+                        }
+                        taskDetail[indexT] = new task("aaaa", Convert.ToInt32(taskObjectT["taskId"].ToString()), taskObjectT["taskDes"].ToString(), Convert.ToBoolean(taskObjectT["isDone"].ToString()), Convert.ToInt32(taskObjectT["timeDateStart"].ToString()), Convert.ToInt32(taskObjectT["timeDateDone"].ToString()), taskObjectT["tag"].ToString());
+                        indexT++;
+                    }
+
+                }
+            }
+        }
     }
     class userTask
     {
