@@ -80,8 +80,13 @@ namespace toDoList
             this.dtend = dtend;
             this.tag = tag;
         }
-        DateTimeOffset now = (DateTimeOffset)DateTime.UtcNow;
-        public string taskidNumber()
+        public static int GetTimestamp()
+        {
+            var Timestamp = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
+            Timestamp=Convert.ToInt64(Timestamp);
+            return Timestamp;
+        }
+        public static string taskidNumber()
         {
             Random rand = new Random();
             string num = "";
