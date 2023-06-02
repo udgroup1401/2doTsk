@@ -155,6 +155,7 @@ namespace toDoList
             string jsonContent = File.ReadAllText("db.json");
             JObject dbFile = JObject.Parse(jsonContent);
             JArray JNewTasks = new JArray();
+            int whereIsUser = 0;
             foreach (var user in dbFile["users"])
             {
                 if (userName == user["username"].ToString())
@@ -163,7 +164,7 @@ namespace toDoList
                     {
                         var newResultToAdd = new JObject(
                      new JProperty("taskId", 123),
-                     new JProperty("taskDes", "dvcvfg"),
+                     new JProperty("taskDes", "ghgfh"),
                      new JProperty("isDone", false),
                      new JProperty("timeDateStart", 123),
                      new JProperty("timeDateDone", 123),
@@ -171,8 +172,14 @@ namespace toDoList
                      );
                         JNewTasks.Add(newResultToAdd);
                     }
+                    break;
+                }else{
+                    whereIsUser++;
                 }
             }
+            dbFile["users"][whereIsUser]["task"] = JNewTasks;
+            File.WriteAllText("db.json", JsonConvert.SerializeObject(dbFile, Formatting.Indented));
+
         }
         public task[] addTask(task addy, string userName)
         {
@@ -236,13 +243,13 @@ namespace toDoList
                     }
                     else
                     {
-                        userTask ut = new userTask(loggedInUser.getUsername());
-                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {ut.howManyTask()} task\n1. logout\n2. show task\n3. new task");
+                        userTask loggedInUserTask = new userTask(loggedInUser.getUsername());
+                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {loggedInUserTask.howManyTask()} task\n1. logout\n2. show task\n3. new task");
                         int userInputMenuL = Convert.ToInt32(Console.ReadLine());
                         if (userInputMenuL == 1) { loggedInUser.logout(); }
                         if (userInputMenuL == 2)
                         {
-                            task[] userTaskForShow = ut.detailedTask();
+                            task[] userTaskForShow = loggedInUserTask.detailedTask();
                             foreach (task tskFSF in userTaskForShow)
                             {
                                 tskFSF.tostring();
@@ -250,6 +257,10 @@ namespace toDoList
                             }
                         }
                         if(userInputMenuL == 3){
+                            Console.WriteLine("enter task name");
+                            string newTaskName = Console.ReadLine();
+                            task newTaskForAdd = new task(newTaskName,123,"des t",false,123,123,"n");
+                            loggedInUserTask.addTask(newTaskForAdd,loggedInUser.getUsername());                   
                         }
                     }
                 }
