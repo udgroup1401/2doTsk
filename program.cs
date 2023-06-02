@@ -81,7 +81,7 @@ namespace toDoList
             this.tag = tag;
         }
         DateTimeOffset now = (DateTimeOffset)DateTime.UtcNow;
-        public string tidNumber()
+        public string taskidNumber()
         {
             Random rand = new Random();
             string num = "";
@@ -107,27 +107,38 @@ namespace toDoList
         {
             Console.WriteLine($"name:{this.name}\n taskid:{this.taskid}\n task_description:{this.task_description}\n is_done:{this.is_done}\n dtstart:{this.dtstart}\n dtend:{this.dtend}\n tag:{this.tag}");
         }
-        public void gettaskid(int taskid)
+        public string getname()
         {
-            if(taski=taskid)
-            {
-            return
-            this.name = name;
-            this.taskid = taskid;
-            this.task_description = task_description;
-            this.is_done = is_done;
-            this.dtstart = dtstart;
-            this.dtend = dtend;
-            this.tag = tag;
-            }
-            else
-            {
-                return null;
-            }
+            return this.name;
         }
-        //public task(int taskid,int username)
-        //{
-        //}
+        public int gettaskid()
+        {
+            return this.taskid;
+        }
+        public string gettask_discription()
+        {
+            return this.taskid;
+        }
+        public bool getis_done()
+        {
+            return this.isdone;
+        }
+        public int getdtstart()
+        {
+            return this.dtstart;
+        }
+        public int getdtend()
+        {
+            return this.dtend;
+        }
+        public int gettaskid()
+        {
+            return this.taskid;
+        }
+        public string gettag()
+        {
+            return this.tag;
+        }
     }
     class userTask
     {
