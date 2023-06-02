@@ -180,7 +180,7 @@ namespace toDoList
     }
     class userTask
     {
-        
+        protected int useless;
 
         protected string order;
         protected int tasks;
