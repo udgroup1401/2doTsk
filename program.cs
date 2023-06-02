@@ -162,7 +162,7 @@ namespace toDoList
 
                     foreach (var taskObjectT in user["task"])
                     {
-                        taskDetail[indexT] = new task("aaaa", Convert.ToInt32(taskObjectT["taskId"].ToString()), taskObjectT["taskDes"].ToString(), Convert.ToBoolean(taskObjectT["isDone"].ToString()), Convert.ToInt32(taskObjectT["timeDateStart"].ToString()), Convert.ToInt32(taskObjectT["timeDateDone"].ToString()), taskObjectT["tag"].ToString());
+                        taskDetail[indexT] = new task(taskObjectT["name"].ToString(), Convert.ToInt32(taskObjectT["taskId"].ToString()), taskObjectT["taskDes"].ToString(), Convert.ToBoolean(taskObjectT["isDone"].ToString()), Convert.ToInt32(taskObjectT["timeDateStart"].ToString()), Convert.ToInt32(taskObjectT["timeDateDone"].ToString()), taskObjectT["tag"].ToString());
                         indexT++;
                     }
 
@@ -190,12 +190,13 @@ namespace toDoList
                     foreach (task item in this.detailedTask())
                     {
                         var newResultToAdd = new JObject(
-                     new JProperty("taskId", 123),
-                     new JProperty("taskDes", "ghgfh"),
-                     new JProperty("isDone", false),
-                     new JProperty("timeDateStart", 123),
-                     new JProperty("timeDateDone", 123),
-                     new JProperty("tag", "")
+                     new JProperty("name", item.getname()),
+                     new JProperty("taskId", item.gettaskid()),
+                     new JProperty("taskDes", item.gettask_discription()),
+                     new JProperty("isDone", item.getis_done()),
+                     new JProperty("timeDateStart", item.getdtstart()),
+                     new JProperty("timeDateDone", item.getdtend()),
+                     new JProperty("tag", item.gettag())
                      );
                         JNewTasks.Add(newResultToAdd);
                     }
