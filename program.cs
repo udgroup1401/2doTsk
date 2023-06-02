@@ -112,7 +112,6 @@ namespace toDoList
     class userTask
     {
 
-        protected int[] save;
         protected string order;
         protected int tasks;
         protected task[] taskDetail;
@@ -151,13 +150,43 @@ namespace toDoList
         {
             return taskDetail;
         }
-        public int save()
+        public void save(string userName)
         {
-
+            string jsonContent = File.ReadAllText("db.json");
+            JObject dbFile = JObject.Parse(jsonContent);
+            JArray JNewTasks = new JArray();
+            foreach (var user in dbFile["users"])
+            {
+                if (userName == user["username"].ToString())
+                {
+                    foreach (task item in this.detailedTask())
+                    {
+                        var newResultToAdd = new JObject(
+                     new JProperty("taskId", 123),
+                     new JProperty("taskDes", "dvcvfg"),
+                     new JProperty("isDone", false),
+                     new JProperty("timeDateStart", 123),
+                     new JProperty("timeDateDone", 123),
+                     new JProperty("tag", "")
+                     );
+                        JNewTasks.Add(newResultToAdd);
+                    }
+                }
+            }
         }
-        public task[] addTask()
+        public task[] addTask(task addy, string userName)
         {
-            
+            task[] newTasks = new task[(this.tasks + 1)];
+            int indexT = 0;
+            foreach (task item in this.detailedTask())
+            {
+                newTasks[indexT] = item;
+                indexT++;
+            }
+            newTasks[indexT] = addy;
+            this.taskDetail = newTasks;
+            this.save(userName);
+            return this.taskDetail;
         }
     }
     class program
@@ -169,13 +198,15 @@ namespace toDoList
             {
                 Console.Write("USER? ");
                 string fuser = Console.ReadLine();
-                while(fuser == ""){
+                while (fuser == "")
+                {
                     Console.Write("USER? ");
                     fuser = Console.ReadLine();
                 }
                 Console.Write("PASS? ");
                 string fpass = Console.ReadLine();
-                while(fpass == ""){
+                while (fpass == "")
+                {
                     Console.Write("PASS? ");
                     fpass = Console.ReadLine();
                 }
