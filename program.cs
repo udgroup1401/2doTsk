@@ -80,9 +80,11 @@ namespace toDoList
             this.dtend = dtend;
             this.tag = tag;
         }
-        public static String GetTimestamp(DateTime value)
+        public static int GetTimestamp()
         {
-            return value.ToString("yyyyMMddHHmmssffff");
+            var Timestamp = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
+            Timestamp=Convert.ToInt64(Timestamp);
+            return Timestamp;
         }
         public static string taskidNumber()
         {
