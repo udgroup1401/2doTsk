@@ -81,7 +81,7 @@ namespace toDoList
             this.tag = tag;
         }
         DateTimeOffset now = (DateTimeOffset)DateTime.UtcNow;
-        public string taskidNumber()
+        public static string taskidNumber()
         {
             Random rand = new Random();
             string num = "";
