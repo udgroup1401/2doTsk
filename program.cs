@@ -131,10 +131,6 @@ namespace toDoList
         {
             return this.dtend;
         }
-        public int gettaskid()
-        {
-            return this.taskid;
-        }
         public string gettag()
         {
             return this.tag;
