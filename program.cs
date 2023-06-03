@@ -295,6 +295,28 @@ namespace toDoList
             this.save(userName);
             return this.taskDetail;
         }
+        public task[] updateTask(task editedTask, string userName)
+        {
+            task[] newTasks = new task[(this.tasks)];
+            int indexT = 0;
+            foreach (task item in this.detailedTask())
+            {
+                    if (item.gettaskid() == editedTask.gettaskid())
+                    {
+                        newTasks[indexT] = editedTask;
+                        indexT++;    
+                    }
+                    else
+                    {
+                        newTasks[indexT] = item;
+                        indexT++;    
+
+                    }   
+            }
+            this.taskDetail = newTasks;
+            this.save(userName);
+            return this.taskDetail;
+        }
     }
     class program
     {
@@ -344,7 +366,7 @@ namespace toDoList
                     else
                     {
                         userTask loggedInUserTask = new userTask(loggedInUser.getUsername());
-                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {loggedInUserTask.howManyTask()} task\n1. logout\n2. show task\n3. new task\n4. delete task");
+                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {loggedInUserTask.howManyTask()} task\n1. logout\n2. show task\n3. new task\n4. delete task\n5.edit task");
                         int userInputMenuL = Convert.ToInt32(Console.ReadLine());
                         if (userInputMenuL == 1) { loggedInUser.logout(); }
                         if (userInputMenuL == 2)
@@ -375,6 +397,25 @@ namespace toDoList
                             Console.WriteLine("Enter task Id for delete");
                             int deleteTaskId = Convert.ToInt32(Console.ReadLine());
                             loggedInUserTask.deleteTask(deleteTaskId, loggedInUser.getUsername());
+                        }
+                        if (userInputMenuL == 5)
+                        {
+                            Console.WriteLine("Enter taskId for edit");
+                            int taskIdnew = Convert.ToInt32(Console.ReadLine());
+                            task editableTask = new task(taskIdnew, loggedInUser.getUsername());
+                            Console.WriteLine("enter task name");
+                            editableTask.namechange(Console.ReadLine());
+                            Console.WriteLine("enter task des");
+                            editableTask.task_discriptionchange(Console.ReadLine());
+                            Console.WriteLine("enter task tag");
+                            editableTask.tagchange(Console.ReadLine());
+                            Console.WriteLine("enter start time : yyyy/MM/dd HH:mm");
+                            long startTimeStamp = task.getTimestampFromDataAndTime(Console.ReadLine());
+                            editableTask.dtstartchange(startTimeStamp);
+                            Console.WriteLine("enter end time : yyyy/MM/dd HH:mm");
+                            long endTimeStamp = task.getTimestampFromDataAndTime(Console.ReadLine());
+                            editableTask.dtendchange(endTimeStamp);
+                            loggedInUserTask.updateTask(editableTask, loggedInUser.getUsername());
                         }
                         
                     }
