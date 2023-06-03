@@ -180,8 +180,6 @@ namespace toDoList
     }
     class userTask
     {
-
-        protected string order;
         protected int tasks;
         protected task[] taskDetail;
         public userTask(string userName)
@@ -265,6 +263,22 @@ namespace toDoList
             this.save(userName);
             return this.taskDetail;
         }
+        public task[] deleteTask(int taskId, string userName)
+        {
+            task[] newTasks = new task[(this.tasks - 1)];
+            int indexT = 0;
+            foreach (task item in this.detailedTask())
+            {
+                    if (item.gettaskid() != taskId)
+                    {
+                        newTasks[indexT] = item;
+                        indexT++;    
+                    }   
+            }
+            this.taskDetail = newTasks;
+            this.save(userName);
+            return this.taskDetail;
+        }
     }
     class program
     {
@@ -314,7 +328,7 @@ namespace toDoList
                     else
                     {
                         userTask loggedInUserTask = new userTask(loggedInUser.getUsername());
-                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {loggedInUserTask.howManyTask()} task\n1. logout\n2. show task\n3. new task");
+                        Console.WriteLine($"Logged in as {loggedInUser.getUsername()} - you have {loggedInUserTask.howManyTask()} task\n1. logout\n2. show task\n3. new task\n4. delete task");
                         int userInputMenuL = Convert.ToInt32(Console.ReadLine());
                         if (userInputMenuL == 1) { loggedInUser.logout(); }
                         if (userInputMenuL == 2)
@@ -339,6 +353,12 @@ namespace toDoList
                             long endTimeStamp = task.getTimestampFromDataAndTime(Console.ReadLine());
                             task newTaskForAdd = new task(newTaskName,Convert.ToInt32(task.taskidNumber()),newTaskDes,false,startTimeStamp,endTimeStamp,newTaskTag);
                             loggedInUserTask.addTask(newTaskForAdd,loggedInUser.getUsername());                   
+                        }
+                        if (userInputMenuL == 4)
+                        {
+                            Console.WriteLine("Enter task Id for delete");
+                            int deleteTaskId = Convert.ToInt32(Console.ReadLine());
+                            loggedInUserTask.deleteTask(deleteTaskId, loggedInUser.getUsername());
                         }
                         
                     }
