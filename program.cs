@@ -113,13 +113,29 @@ namespace toDoList
             }
             return Convert.ToInt32(num);
         }
-        public void replacetask_discription(string task_discription)
+         public void namechange(string name)
+        {
+            this.name = name;
+        }
+         public void task_discriptionchange(string task_discription)
         {
             this.task_description = task_discription;
         }
-        public void changeis_done(bool is_done)
+        public void is_donechange(bool is_done)
         {
             this.is_done = is_done;
+        }
+        public void dtstartchange(long dtstart)
+        {
+            this.dtstart = dtstart;
+        }
+        public void dtendchange(long dtend)
+        {
+            this.dtend = dtend;
+        }
+        public void tagchange(string tag)
+        {
+            this.tag = tag;
         }
         public void tostring()
         {
